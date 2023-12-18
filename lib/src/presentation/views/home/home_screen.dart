@@ -1,11 +1,12 @@
 import 'package:expense_repository/expense_repository.dart';
-import 'package:financeapp/src/presentation/blocs/authentication_bloc/authentication_bloc.dart';
-import 'package:financeapp/src/presentation/blocs/chart_page_bloc/chart_page_bloc.dart';
+import 'package:financeapp/src/presentation/views/auth/bloc/authentication_bloc/authentication_bloc.dart';
+import 'package:financeapp/src/presentation/views/charts/chart_page_bloc/chart_page_bloc.dart';
 import 'package:financeapp/src/utils/constants/app_constants.dart';
 import 'package:financeapp/src/utils/extensions/utlity.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -20,7 +21,7 @@ class HomeScreen extends StatelessWidget {
             slivers: [
               SliverToBoxAdapter(
                 child: SizedBox(
-                    height: 340,
+                    height: 340.h,
                     child: _head(
                         state.salesData,
                         state.salesData.isEmpty
@@ -29,14 +30,14 @@ class HomeScreen extends StatelessWidget {
                             : state.salesData[0].myUser.name,
                         context)),
               ),
-              const SliverToBoxAdapter(
+               SliverToBoxAdapter(
                 child: Padding(
-                  padding: EdgeInsets.symmetric(horizontal: 15),
+                  padding: EdgeInsets.symmetric(horizontal: 15.w),
                   child: Text(
                     'Transactions History',
                     style: TextStyle(
                       fontWeight: FontWeight.w600,
-                      fontSize: 19,
+                      fontSize: 19.sp,
                       color: Colors.black,
                     ),
                   ),
@@ -74,12 +75,12 @@ class HomeScreen extends StatelessWidget {
       leading: ClipRRect(
         borderRadius: BorderRadius.circular(5),
         child:
-            Image.asset('assets/images/${expense.expenseName}.png', height: 40),
+            Image.asset('assets/images/${expense.expenseName}.png', height: 40.h),
       ),
       title: Text(
         expense.expenseName,
-        style: const TextStyle(
-          fontSize: 17,
+        style:  TextStyle(
+          fontSize: 17.sp,
           fontWeight: FontWeight.w600,
         ),
       ),
@@ -93,7 +94,7 @@ class HomeScreen extends StatelessWidget {
         expense.expenseCost,
         style: TextStyle(
           fontWeight: FontWeight.w600,
-          fontSize: 19,
+          fontSize: 19.sp,
           color: expense.expenseType == 'Income' ? Colors.green : Colors.red,
         ),
       ),
@@ -108,32 +109,32 @@ class HomeScreen extends StatelessWidget {
           children: [
             Container(
               width: double.infinity,
-              height: 240,
-              decoration: const BoxDecoration(
-                color: Color(0xff368983),
+              height: 240.h,
+              decoration: BoxDecoration(
+                color: const Color(0xff368983),
                 borderRadius: BorderRadius.only(
-                  bottomLeft: Radius.circular(20),
-                  bottomRight: Radius.circular(20),
+                  bottomLeft: Radius.circular(20.r),
+                  bottomRight: Radius.circular(20.r),
                 ),
               ),
               child: Stack(
                 children: [
                   Padding(
-                    padding: const EdgeInsets.only(top: 35, left: 10),
+                    padding:  EdgeInsets.only(top: 35.h, left: 10.w),
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Padding(
-                          padding: const EdgeInsets.only(right: 8.0),
+                          padding:  EdgeInsets.only(right: 8.0.w),
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
-                              const Text(
+                               Text(
                                 'Hello,',
                                 style: TextStyle(
                                   fontWeight: FontWeight.w500,
-                                  fontSize: 16,
-                                  color: Color.fromARGB(255, 224, 223, 223),
+                                  fontSize: 16.sp,
+                                  color: const Color.fromARGB(255, 224, 223, 223),
                                 ),
                               ),
                               IconButton(
@@ -146,7 +147,7 @@ class HomeScreen extends StatelessWidget {
                                           .userRepository
                                     });
                                   },
-                                  icon: Icon(
+                                  icon: const Icon(
                                     Icons.logout,
                                     color: Colors.white,
                                   ))
@@ -155,9 +156,9 @@ class HomeScreen extends StatelessWidget {
                         ),
                         Text(
                           username,
-                          style: const TextStyle(
+                          style:  TextStyle(
                             fontWeight: FontWeight.w600,
-                            fontSize: 20,
+                            fontSize: 20.sp,
                             color: Colors.white,
                           ),
                         ),
@@ -170,11 +171,11 @@ class HomeScreen extends StatelessWidget {
           ],
         ),
         Positioned(
-          top: 140,
-          left: 20,
+          top: 140.h,
+          left: 20.w,
           child: Container(
-            height: 170,
-            width: 320,
+            height: 170.h,
+            width: 320.w,
             decoration: BoxDecoration(
               boxShadow: const [
                 BoxShadow(
@@ -185,13 +186,13 @@ class HomeScreen extends StatelessWidget {
                 ),
               ],
               color: const Color.fromARGB(255, 47, 125, 121),
-              borderRadius: BorderRadius.circular(15),
+              borderRadius: BorderRadius.circular(15.r),
             ),
             child: Column(
               children: [
-                const SizedBox(height: 10),
-                const Padding(
-                  padding: EdgeInsets.symmetric(horizontal: 15),
+                 SizedBox(height: 10.h),
+                 Padding(
+                  padding: EdgeInsets.symmetric(horizontal: 15.w),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
@@ -199,75 +200,75 @@ class HomeScreen extends StatelessWidget {
                         'Total Balance',
                         style: TextStyle(
                           fontWeight: FontWeight.w500,
-                          fontSize: 16,
+                          fontSize: 16.sp,
                           color: Colors.white,
                         ),
                       ),
                     ],
                   ),
                 ),
-                const SizedBox(height: 7),
+                SizedBox(height: 7.h),
                 Padding(
-                  padding: const EdgeInsets.only(left: 15),
+                  padding:  EdgeInsets.only(left: 15.w),
                   child: Row(
                     children: [
                       Text(
                         '\$ ${calculateBalance(transactions)}',
-                        style: const TextStyle(
+                        style:  TextStyle(
                           fontWeight: FontWeight.bold,
-                          fontSize: 25,
+                          fontSize: 25.sp,
                           color: Colors.white,
                         ),
                       ),
                     ],
                   ),
                 ),
-                const SizedBox(height: 25),
-                const Padding(
-                  padding: EdgeInsets.symmetric(horizontal: 15),
+                SizedBox(height: 25.h),
+               Padding(
+                  padding: EdgeInsets.symmetric(horizontal: 15.w),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       Row(
                         children: [
                           CircleAvatar(
-                            radius: 13,
-                            backgroundColor: Color.fromARGB(255, 85, 145, 141),
+                            radius: 13.r,
+                            backgroundColor: const Color.fromARGB(255, 85, 145, 141),
                             child: Icon(
                               Icons.arrow_downward,
                               color: Colors.white,
-                              size: 19,
+                              size: 19.sp,
                             ),
                           ),
-                          SizedBox(width: 7),
+                          SizedBox(width: 7.w),
                           Text(
                             'Income',
                             style: TextStyle(
                               fontWeight: FontWeight.w500,
-                              fontSize: 16,
-                              color: Color.fromARGB(255, 216, 216, 216),
+                              fontSize: 16.sp,
+                              color: const Color.fromARGB(255, 216, 216, 216),
                             ),
                           ),
                         ],
                       ),
-                      Row(
+                       Row(
                         children: [
                           CircleAvatar(
-                            radius: 13,
-                            backgroundColor: Color.fromARGB(255, 85, 145, 141),
+                            radius: 13.r,
+                            backgroundColor: const Color.fromARGB(255, 85, 145, 141),
                             child: Icon(
                               Icons.arrow_upward,
                               color: Colors.white,
-                              size: 19,
+                              size: 19.sp,
                             ),
                           ),
-                          SizedBox(width: 7),
+                          SizedBox(width: 7.w),
                           Text(
                             'Expenses',
                             style: TextStyle(
                               fontWeight: FontWeight.w500,
-                              fontSize: 16,
-                              color: Color.fromARGB(255, 216, 216, 216),
+                              fontSize: 16.sp,
+                              color: const Color.fromARGB(255, 216, 216, 216),
                             ),
                           ),
                         ],
@@ -275,25 +276,25 @@ class HomeScreen extends StatelessWidget {
                     ],
                   ),
                 ),
-                const SizedBox(height: 6),
+                SizedBox(height: 6.h),
                 Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 30),
+                  padding:  EdgeInsets.symmetric(horizontal: 30.w),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       Text(
                         '\$ ${calculateIncome(transactions)}',
-                        style: const TextStyle(
+                        style: TextStyle(
                           fontWeight: FontWeight.w600,
-                          fontSize: 17,
+                          fontSize: 17.sp,
                           color: Colors.white,
                         ),
                       ),
                       Text(
                         '\$ ${calculateExpenses(transactions)}',
-                        style: const TextStyle(
+                        style:  TextStyle(
                           fontWeight: FontWeight.w600,
-                          fontSize: 17,
+                          fontSize: 17.sp,
                           color: Colors.white,
                         ),
                       ),

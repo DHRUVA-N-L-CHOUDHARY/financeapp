@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class MyTextField extends StatelessWidget {
 	final TextEditingController controller;
@@ -43,11 +44,11 @@ class MyTextField extends StatelessWidget {
 				suffixIcon: suffixIcon,
 				prefixIcon: prefixIcon,
 				enabledBorder: OutlineInputBorder(
-					borderRadius: BorderRadius.circular(10),
+					borderRadius: BorderRadius.circular(10.r),
 					borderSide: const BorderSide(color: Colors.transparent),
 				),
 				focusedBorder: OutlineInputBorder(
-					borderRadius: BorderRadius.circular(20),
+					borderRadius: BorderRadius.circular(20.r),
 					borderSide: BorderSide(color: Theme.of(context).colorScheme.secondary),
 				),
 				fillColor: Colors.grey.shade200,

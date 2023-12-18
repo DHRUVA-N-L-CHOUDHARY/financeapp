@@ -1,5 +1,5 @@
 import 'package:financeapp/app_view.dart';
-import 'package:financeapp/src/presentation/blocs/authentication_bloc/authentication_bloc.dart';
+import 'package:financeapp/src/presentation/views/auth/bloc/authentication_bloc/authentication_bloc.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:user_repository/user_repository.dart';

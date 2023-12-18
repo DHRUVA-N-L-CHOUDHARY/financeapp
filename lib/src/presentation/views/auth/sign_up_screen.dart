@@ -1,9 +1,10 @@
+import 'package:financeapp/src/presentation/views/auth/bloc/sign_up_bloc/sign_up_bloc.dart';
 import 'package:financeapp/src/presentation/widgets/my_text_field.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:user_repository/user_repository.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import '../../blocs/sign_up_bloc/sign_up_bloc.dart';
 
 class SignUpScreen extends StatefulWidget {
   const SignUpScreen({super.key});
@@ -49,7 +50,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
 						child: Center(
 							child: Column(
 								children: [
-									const SizedBox(height: 20),
+								 SizedBox(height: 20.h),
 									SizedBox(
 										width: MediaQuery.of(context).size.width * 0.9,
 										child: MyTextField(
@@ -68,7 +69,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
 											}
 										),
 									),
-									const SizedBox(height: 10),
+									 SizedBox(height: 10.h),
 									SizedBox(
 										width: MediaQuery.of(context).size.width * 0.9,
 										child: MyTextField(
@@ -205,7 +206,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
 											),
 										],
 									),
-									const SizedBox(height: 10),
+								 SizedBox(height: 10.h),
 									SizedBox(
 										width: MediaQuery.of(context).size.width * 0.9,
 										child: MyTextField(
@@ -251,17 +252,17 @@ class _SignUpScreenState extends State<SignUpScreen> {
 														backgroundColor: Theme.of(context).colorScheme.primary,
 														foregroundColor: Colors.white,
 														shape: RoundedRectangleBorder(
-															borderRadius: BorderRadius.circular(60)
+															borderRadius: BorderRadius.circular(60.r)
 														)
 													),
-													child: const Padding(
-														padding: EdgeInsets.symmetric(horizontal: 25, vertical: 5),
+													child:  Padding(
+														padding: EdgeInsets.symmetric(horizontal: 25.w, vertical: 5.h),
 														child: Text(
 															'Sign Up',
 															textAlign: TextAlign.center,
 															style: TextStyle(
 																color: Colors.white,
-																fontSize: 16,
+																fontSize: 16.sp,
 																fontWeight: FontWeight.w600
 															),
 														),

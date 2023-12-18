@@ -1,9 +1,10 @@
 import 'package:expense_repository/expense_repository.dart';
-import 'package:financeapp/src/presentation/blocs/chart_page_bloc/chart_page_bloc.dart';
+import 'package:financeapp/src/presentation/views/charts/chart_page_bloc/chart_page_bloc.dart';
 import 'package:financeapp/src/presentation/widgets/chart.dart';
 import 'package:financeapp/src/utils/extensions/utlity.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class ChartScreen extends StatefulWidget {
   const ChartScreen({super.key});
@@ -60,13 +61,13 @@ class _ChartScreenState extends State<ChartScreen> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              SizedBox(height: 20),
+              SizedBox(height: 20.h),
               Center(
                 child: Text(
                   'Statistics',
                   style: TextStyle(
                     color: Colors.black,
-                    fontSize: 20,
+                    fontSize: 20.sp,
                     fontWeight: FontWeight.w700,
                   ),
                 ),
@@ -88,10 +89,10 @@ class _ChartScreenState extends State<ChartScreen> {
                             _onPeriodChange(index, expense);
                           },
                           child: Container(
-                            height: 40,
-                            width: 80,
+                            height: 40.h,
+                            width: 80.w,
                             decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(10),
+                              borderRadius: BorderRadius.circular(10.r),
                               color: index_color == index
                                   ? Color.fromARGB(255, 47, 125, 121)
                                   : Colors.white,
@@ -103,7 +104,7 @@ class _ChartScreenState extends State<ChartScreen> {
                                 color: index_color == index
                                     ? Colors.white
                                     : Colors.black,
-                                fontSize: 16,
+                                fontSize: 16.sp,
                                 fontWeight: FontWeight.w500,
                               ),
                             ),
@@ -114,19 +115,19 @@ class _ChartScreenState extends State<ChartScreen> {
                   ],
                 ),
               ),
-              SizedBox(height: 20),
+              SizedBox(height: 20.h),
               Chart(
                 indexx: index_color,
                 expense: a,
               ),
-              SizedBox(height: 20),
+              SizedBox(height: 20.h),
               Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 15),
+                padding:  EdgeInsets.symmetric(horizontal: 15.w),
                 child: Text(
                   'Top Spending',
                   style: TextStyle(
                       color: Colors.black,
-                      fontSize: 16,
+                      fontSize: 16.sp,
                       fontWeight: FontWeight.bold),
                 ),
               ),
@@ -138,14 +139,14 @@ class _ChartScreenState extends State<ChartScreen> {
           (context, index) {
             return ListTile(
               leading: ClipRRect(
-                borderRadius: BorderRadius.circular(5),
+                borderRadius: BorderRadius.circular(5.r),
                 child: Image.asset('assets/images/${a[index].expenseName}.png',
-                    height: 40),
+                    height: 40.h),
               ),
               title: Text(
                 a[index].expenseName,
                 style: TextStyle(
-                  fontSize: 17,
+                  fontSize: 17.sp,
                   fontWeight: FontWeight.w600,
                 ),
               ),
@@ -159,7 +160,7 @@ class _ChartScreenState extends State<ChartScreen> {
                 a[index].expenseCost,
                 style: TextStyle(
                   fontWeight: FontWeight.w600,
-                  fontSize: 19,
+                  fontSize: 19.sp,
                   color: a[index].expenseType == 'Income'
                       ? Colors.green
                       : Colors.red,

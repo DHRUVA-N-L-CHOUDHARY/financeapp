@@ -1,10 +1,11 @@
 import 'package:bills_repository/bills_repository.dart';
-import 'package:financeapp/src/presentation/blocs/add_bills_bloc/add_bills_bloc.dart';
 import 'package:financeapp/src/presentation/blocs/my_user_bloc/my_user_bloc.dart';
+import 'package:financeapp/src/presentation/views/add_bills/add_bills_bloc/add_bills_bloc.dart';
 import 'package:financeapp/src/utils/extensions/custom_snackbar.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:user_repository/user_repository.dart';
 
 class AddBillsScreen extends StatefulWidget {
@@ -59,7 +60,7 @@ class _AddBillsScreenState extends State<AddBillsScreen> {
             children: [
               background_container(context),
               Positioned(
-                top: 120,
+                top: 120.h,
                 child: main_container(),
               ),
             ],
@@ -81,17 +82,17 @@ class _AddBillsScreenState extends State<AddBillsScreen> {
         key: _addbillkey,
         child: Column(
           children: [
-            const SizedBox(height: 60),
+            SizedBox(height: 60.h),
             name(),
-            const SizedBox(height: 35),
+            SizedBox(height: 35.h),
             amount(),
-            const SizedBox(height: 35),
+            SizedBox(height: 35.h),
             dueDate(),
-            const SizedBox(height: 35),
+            SizedBox(height: 35.h),
             date_time(),
             const Spacer(),
             save(_addbillkey),
-            const SizedBox(height: 40),
+            SizedBox(height: 40.h),
           ],
         ),
       ),
@@ -136,15 +137,15 @@ class _AddBillsScreenState extends State<AddBillsScreen> {
                 borderRadius: BorderRadius.circular(15),
                 color: const Color(0xff368983),
               ),
-              width: 120,
-              height: 50,
-              child: const Text(
+              width: 120.w,
+              height: 50.h,
+              child: Text(
                 'Add to List',
                 style: TextStyle(
                   fontFamily: 'f',
                   fontWeight: FontWeight.w600,
                   color: Colors.white,
-                  fontSize: 17,
+                  fontSize: 17.sp,
                 ),
               ),
             ),
@@ -157,18 +158,18 @@ class _AddBillsScreenState extends State<AddBillsScreen> {
             child: Container(
               alignment: Alignment.center,
               decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(15),
+                borderRadius: BorderRadius.circular(15.r),
                 color: const Color(0xff368983),
               ),
-              width: 120,
-              height: 50,
-              child: const Text(
+              width: 120.w,
+              height: 50.h,
+              child:  Text(
                 'Add to List',
                 style: TextStyle(
                   fontFamily: 'f',
                   fontWeight: FontWeight.w600,
                   color: Colors.white,
-                  fontSize: 17,
+                  fontSize: 17.sp,
                 ),
               ),
             ),
@@ -183,8 +184,8 @@ class _AddBillsScreenState extends State<AddBillsScreen> {
       alignment: Alignment.bottomLeft,
       decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(10),
-          border: Border.all(width: 2, color: const Color(0xffC5C5C5))),
-      width: 300,
+          border: Border.all(width: 2.w, color: const Color(0xffC5C5C5))),
+      width: 300.w,
       child: TextButton(
         onPressed: () async {
           DateTime? newDate = await showDatePicker(
@@ -199,8 +200,8 @@ class _AddBillsScreenState extends State<AddBillsScreen> {
         },
         child: Text(
           'Date : ${date.year} / ${date.day} / ${date.month}',
-          style: const TextStyle(
-            fontSize: 15,
+          style:  TextStyle(
+            fontSize: 15.sp,
             color: Colors.black,
           ),
         ),
@@ -213,8 +214,8 @@ class _AddBillsScreenState extends State<AddBillsScreen> {
       alignment: Alignment.bottomLeft,
       decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(10),
-          border: Border.all(width: 2, color: const Color(0xffC5C5C5))),
-      width: 300,
+          border: Border.all(width: 2.w, color: const Color(0xffC5C5C5))),
+      width: 300.w,
       child: TextButton(
         onPressed: () async {
           DateTime? newDate = await showDatePicker(
@@ -229,8 +230,8 @@ class _AddBillsScreenState extends State<AddBillsScreen> {
         },
         child: Text(
           'Due Date : ${duedate.year} / ${duedate.day} / ${duedate.month}',
-          style: const TextStyle(
-            fontSize: 15,
+          style: TextStyle(
+            fontSize: 15.sp,
             color: Colors.black,
           ),
         ),
@@ -251,10 +252,10 @@ class _AddBillsScreenState extends State<AddBillsScreen> {
           labelText: 'Amount',
           labelStyle: TextStyle(fontSize: 17, color: Colors.grey.shade500),
           enabledBorder: OutlineInputBorder(
-              borderRadius: BorderRadius.circular(10),
+              borderRadius: BorderRadius.circular(10.r),
               borderSide: const BorderSide(width: 2, color: Color(0xffC5C5C5))),
           focusedBorder: OutlineInputBorder(
-              borderRadius: BorderRadius.circular(10),
+              borderRadius: BorderRadius.circular(10.r),
               borderSide: const BorderSide(width: 2, color: Color(0xff368983))),
         ),
       ),
@@ -270,15 +271,15 @@ class _AddBillsScreenState extends State<AddBillsScreen> {
         controller: name_c,
         decoration: InputDecoration(
           contentPadding:
-              const EdgeInsets.symmetric(horizontal: 15, vertical: 15),
+              EdgeInsets.symmetric(horizontal: 15.w, vertical: 15.h),
           labelText: 'Bill Name',
-          labelStyle: TextStyle(fontSize: 17, color: Colors.grey.shade500),
+          labelStyle: TextStyle(fontSize: 17.sp, color: Colors.grey.shade500),
           enabledBorder: OutlineInputBorder(
-              borderRadius: BorderRadius.circular(10),
-              borderSide: const BorderSide(width: 2, color: Color(0xffC5C5C5))),
+              borderRadius: BorderRadius.circular(10.r),
+              borderSide:  BorderSide(width: 2.w, color: Color(0xffC5C5C5))),
           focusedBorder: OutlineInputBorder(
-              borderRadius: BorderRadius.circular(10),
-              borderSide: const BorderSide(width: 2, color: Color(0xff368983))),
+              borderRadius: BorderRadius.circular(10.r),
+              borderSide: BorderSide(width: 2.w, color: Color(0xff368983))),
         ),
       ),
     );
@@ -289,23 +290,23 @@ class _AddBillsScreenState extends State<AddBillsScreen> {
       children: [
         Container(
           width: double.infinity,
-          height: 240,
+          height: 240.w,
           decoration: BoxDecoration(
-            color: const Color(0xff368983),
-            borderRadius: const BorderRadius.only(
-              bottomLeft: Radius.circular(20),
-              bottomRight: Radius.circular(20),
+            color:  Color(0xff368983),
+            borderRadius: BorderRadius.only(
+              bottomLeft: Radius.circular(20.r),
+              bottomRight: Radius.circular(20.r),
             ),
           ),
-          child: const Column(
+          child: Column(
             children: [
-              SizedBox(height: 40),
+              SizedBox(height: 40.h),
               Padding(
-                padding: EdgeInsets.only(left: 16.0),
+                padding: EdgeInsets.only(left: 16.0.w),
                 child: Text(
                   'Add Bill',
                   style: TextStyle(
-                      fontSize: 20,
+                      fontSize: 20.sp,
                       fontWeight: FontWeight.w600,
                       color: Colors.white),
                 ),

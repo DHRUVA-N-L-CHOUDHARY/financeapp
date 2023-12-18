@@ -1,13 +1,13 @@
 import 'dart:ui';
 
+import 'package:financeapp/src/presentation/views/auth/bloc/authentication_bloc/authentication_bloc.dart';
+import 'package:financeapp/src/presentation/views/auth/bloc/sign_up_bloc/sign_up_bloc.dart';
+import 'package:financeapp/src/presentation/views/auth/bloc/sign_in_bloc/sign_in_bloc.dart';
 import 'package:financeapp/src/presentation/views/auth/sign_in_screen.dart';
 import 'package:financeapp/src/presentation/views/auth/sign_up_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-
-import '../../blocs/authentication_bloc/authentication_bloc.dart';
-import '../../blocs/sign_in_bloc/sign_in_bloc.dart';
-import '../../blocs/sign_up_bloc/sign_up_bloc.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class WelcomeScreen extends StatefulWidget {
   const WelcomeScreen({super.key});
@@ -83,27 +83,27 @@ class _WelcomeScreenState extends State<WelcomeScreen> with TickerProviderStateM
 									child: Column(
 										children: [
 											Padding(
-												padding: const EdgeInsets.symmetric(horizontal: 50.0),
+												padding:  EdgeInsets.symmetric(horizontal: 50.0.w),
 												child: TabBar(
 													controller: tabController,
 													unselectedLabelColor: Theme.of(context).colorScheme.onBackground.withOpacity(0.5),
 													labelColor: Theme.of(context).colorScheme.onBackground,
-													tabs: const [
+													tabs:  [
 														Padding(
-															padding: EdgeInsets.all(12.0),
+															padding: EdgeInsets.all(12.0.h),
 															child: Text(
 																'Sign In',
 																style: TextStyle(
-																	fontSize: 18,
+																	fontSize: 18.sp,
 																),
 															),
 														),
 														Padding(
-															padding: EdgeInsets.all(12.0),
+															padding: EdgeInsets.all(12.0.h),
 															child: Text(
 																'Sign Up',
 																style: TextStyle(
-																	fontSize: 18,
+																	fontSize: 18.sp,
 																),
 															),
 														),

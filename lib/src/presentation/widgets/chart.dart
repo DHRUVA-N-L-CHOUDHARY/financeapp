@@ -3,6 +3,7 @@
 import 'package:expense_repository/expense_repository.dart';
 import 'package:financeapp/src/utils/extensions/utlity.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:syncfusion_flutter_charts/charts.dart';
 
 class Chart extends StatefulWidget {
@@ -44,13 +45,13 @@ class _ChartState extends State<Chart> {
     }
     return Container(
       width: double.infinity,
-      height: 300,
+      height: 300.h,
       child:  SfCartesianChart(
               primaryXAxis: CategoryAxis(),
               series: <SplineSeries<Expense, int>>[
                 SplineSeries<Expense, int>(
                   color:  Color.fromARGB(255, 47, 125, 121),
-                  width: 3,
+                  width: 3.w,
                   dataSource: widget.expense,
                   xValueMapper: b,
                   yValueMapper: (Expense sales, _) => double.parse(sales.expenseCost),

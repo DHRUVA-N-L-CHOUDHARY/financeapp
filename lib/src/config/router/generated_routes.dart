@@ -1,7 +1,7 @@
-import 'package:financeapp/src/presentation/blocs/authentication_bloc/authentication_bloc.dart';
-import 'package:financeapp/src/presentation/blocs/landing_page_bloc/landing_page_bloc.dart';
 import 'package:financeapp/src/presentation/blocs/my_user_bloc/my_user_bloc.dart';
+import 'package:financeapp/src/presentation/views/auth/bloc/authentication_bloc/authentication_bloc.dart';
 import 'package:financeapp/src/presentation/views/auth/welcome_screen.dart';
+import 'package:financeapp/src/presentation/views/landing/landing_page_bloc/landing_page_bloc.dart';
 import 'package:financeapp/src/presentation/views/landing/landing_screen.dart';
 import 'package:financeapp/src/presentation/views/splash/splash_screen.dart';
 import 'package:flutter/material.dart';
@@ -9,7 +9,6 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 class RouteGenerator {
   static Route<dynamic> generateRoute(RouteSettings settings) {
-    final args = settings.arguments;
     switch (settings.name) {
       case '/splash':
         return MaterialPageRoute(builder: (context) {

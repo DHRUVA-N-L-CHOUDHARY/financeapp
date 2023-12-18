@@ -1,8 +1,9 @@
 import 'package:bills_repository/bills_repository.dart';
-import 'package:financeapp/src/presentation/blocs/get_bills_bloc/get_bills_bloc.dart';
+import 'package:financeapp/src/presentation/views/my_bills/get_bills_bloc/get_bills_bloc.dart';
 import 'package:financeapp/src/utils/constants/app_constants.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class MyBillsScreen extends StatelessWidget {
   const MyBillsScreen({super.key});
@@ -16,14 +17,14 @@ class MyBillsScreen extends StatelessWidget {
             body: SafeArea(
               child: CustomScrollView(
                 slivers: [
-                  const SliverToBoxAdapter(
+                   SliverToBoxAdapter(
                     child: Padding(
-                      padding: EdgeInsets.only(left: 15,right:15,top: 30),
+                      padding: EdgeInsets.only(left: 15.w,right:15.w,top: 30.h),
                       child: Text(
                         'Upcoming Bills',
                         style: TextStyle(
                           fontWeight: FontWeight.w600,
-                          fontSize: 19,
+                          fontSize: 19.sp,
                           color: Colors.black,
                         ),
                       ),
@@ -38,14 +39,14 @@ class MyBillsScreen extends StatelessWidget {
                       childCount: state.bills.length,
                     ),
                   ),
-                  const SliverToBoxAdapter(
+                   SliverToBoxAdapter(
                     child: Padding(
-                      padding: EdgeInsets.only(left: 15,right:15,top: 60),
+                      padding: EdgeInsets.only(left: 15.w,right:15.w,top: 60.h),
                       child: Text(
                         'Past Bills',
                         style: TextStyle(
                           fontWeight: FontWeight.w600,
-                          fontSize: 19,
+                          fontSize: 19.sp,
                           color: Colors.black,
                         ),
                       ),
@@ -101,8 +102,8 @@ class MyBillsScreen extends StatelessWidget {
     return ListTile(
       title: Text(
         bill.billName,
-        style: const TextStyle(
-          fontSize: 17,
+        style:  TextStyle(
+          fontSize: 17.sp,
           fontWeight: FontWeight.w600,
         ),
       ),
@@ -114,9 +115,9 @@ class MyBillsScreen extends StatelessWidget {
       ),
       trailing: Text(
         bill.billCost,
-        style: const TextStyle(
+        style:  TextStyle(
           fontWeight: FontWeight.w600,
-          fontSize: 19,
+          fontSize: 19.sp,
           color: Colors.red,
         ),
       ),
