@@ -108,7 +108,7 @@ class _AddBillsScreenState extends State<AddBillsScreen> {
         if (state.status == MyUserStatus.success) {
           return GestureDetector(
             onTap: () {
-              if (formkey.currentState!.validate()) {
+              if (formkey.currentState!.validate() && amount_c.text != "" && name_c.text != "") {
                 Bill add = Bill(
                     billId: '',
                     dueDate: duedate,
